@@ -1,14 +1,20 @@
 package practica1.Gestion_comidas;
+import java.util.Date;
 
 public class dosis {
     private int cantidad;
-    private int incremento;
+    private int incremento;  //dia hasta el q s debe incrementar 
     private int decremento; //despues de 15 dias 
     private int cantidaddecremento; //cantidad de comida una vez llegado el dia en el q empieza el decremnto
 
+    private int cantidadinicial;
+    private Date ultimodiaincremento;
+    private int cantidadincremento;
+    private int cantfinal; 
+
     public dosis(int cantidad, int incremento, int decremento, int cantidaddecremento) {
         this.cantidad = cantidad;
-        this.incremento = incremento;
+        this.incremento = incremento; 
         this.decremento = decremento;
         this.cantidaddecremento = cantidaddecremento;
     }
