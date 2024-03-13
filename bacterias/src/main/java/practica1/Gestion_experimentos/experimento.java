@@ -1,8 +1,7 @@
 package bacterias.src.main.java.practica1.Gestion_experimentos;
 
-public class laboratorio {
+public class experimento {
 
-
-    //fecha fin = fechainicio + 30
+    
     
 }
