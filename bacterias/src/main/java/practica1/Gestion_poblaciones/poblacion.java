@@ -1,6 +1,7 @@
-import Gestion_comidas.dosis;
+package practica1.Gestion_poblaciones;
+import practica1.Gestion_comidas.*;
 import java.util.Date;
-  
+
 
 public class poblacion {
 

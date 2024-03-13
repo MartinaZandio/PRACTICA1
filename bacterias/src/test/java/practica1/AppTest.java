@@ -1,4 +1,4 @@
-package bacterias.src.test.java.practica1;
+package practica1;
 
 /**
  * Unit test for simple App.

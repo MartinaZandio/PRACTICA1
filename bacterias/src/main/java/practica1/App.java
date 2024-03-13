@@ -1,4 +1,4 @@
-package bacterias.src.main.java.practica1;
+package practica1;
 
 /**
  * Hello world!
