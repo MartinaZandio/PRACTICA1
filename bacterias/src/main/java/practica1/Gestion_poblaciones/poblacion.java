@@ -3,23 +3,22 @@ import practica1.Gestion_comidas.*;
 import java.util.Date;
 
 
-public class poblacion {
+public class poblacion extends experimento{
 
-    private String nombre;
+    public static String nombre;
     private Date fechainicio;
     private Date fechafin;   
     private int numinicialbacterias;
-    private double tempertura; 
+    public static double temperatura; 
     private luminosidad luz;
-                // private comida cmo hacer q dosis no m de error 
     private dosis comida;
 
-    public poblacion(String nombre, Date fechainicio, Date fechafin, int numinicialbacterias, double tempertura, luminosidad luz, dosis comida) {
-        this.nombre = nombre;
+    public poblacion(String nombre, Date fechainicio, Date fechafin, int numinicialbacterias, double temperatura, luminosidad luz, dosis comida) {
+        poblacion.nombre = nombre;  //se pone poblacion.nombre porq es static???
         this.fechainicio = fechainicio;
         this.fechafin = fechafin;
         this.numinicialbacterias = numinicialbacterias;
-        this.tempertura = tempertura;
+        poblacion.temperatura = temperatura;
         this.luz = luz;
         this.comida = comida;
     }
@@ -40,9 +39,9 @@ public class poblacion {
 
     public void setNuminicialbacterias(int numinicialbacterias) { this.numinicialbacterias = numinicialbacterias; }
 
-    public double getTempertura() { return tempertura; }
+    public double getTempertura() { return temperatura; }
 
-    public void setTempertura(double tempertura) { this.tempertura = tempertura; }
+    public void setTempertura(double tempertura) { this.temperatura = tempertura; }
 
     public luminosidad getLuz() { return luz; }
 

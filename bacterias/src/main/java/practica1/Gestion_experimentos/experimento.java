@@ -13,10 +13,10 @@ public class experimento {   //para asociar atributos de poblacion con exprimetn
     ArrayList<poblacion> poblacionestotales = new ArrayList<>();
 
     public experimento(String nombre, Date fechainicio, Date fechafin, double temperatura){
-        this.nombre = nombre;
+        this.nombre = poblacion.nombre;
         this.fechainicio = new Date();
         this.fechafin = new Date(fechainicio.getTime() + 30 * 24 * 60 * 60 * 1000);
-        this.temperatura = temperatura;
+        this.temperatura = poblacion.temperatura;
     }
 
     public String getNombre() { return nombre;  }
