@@ -2,39 +2,38 @@ package practica1.Gestion_comidas;
 import java.util.Date;
 
 public class dosis {
-    private int cantidad;
-    private int incremento;  //dia hasta el q s debe incrementar 
-    private int decremento; //despues de 15 dias 
-    private int cantidaddecremento; //cantidad de comida una vez llegado el dia en el q empieza el decremnto
+    
+    private int cantidadinicial; //cantidad del primer dai 
+    private Date ultimodiaincremento;  //ultimo dia en el q la dosis de comida aumenta linealmente 
+    private int cantidadincremento;  //cantidad de comida en el ultimo dia de incremento de dosis 
+    private int cantidadfinal;   //cantidad que ha sido repartida al final 
 
-    private int cantidadinicial;
-    private Date ultimodiaincremento;
-    private int cantidadincremento;
-    private int cantfinal; 
-
-    public dosis(int cantidad, int incremento, int decremento, int cantidaddecremento) {
-        this.cantidad = cantidad;
-        this.incremento = incremento; 
-        this.decremento = decremento;
-        this.cantidaddecremento = cantidaddecremento;
+    public dosis(int cantidadinicial, Date ultimodiaincremento, int cantidadincremento, int cantidadfinal) {
+        this.cantidadinicial = cantidadinicial;
+        this.ultimodiaincremento = ultimodiaincremento; 
+        this.cantidadincremento = cantidadincremento;
+        this.cantidadfinal = cantidadfinal;
     }
 
-    public int getCantidad() { return cantidad; }
+    public int getCantidadInicial() {  return cantidadinicial; }
 
-    public void setCantidad(int cantidad) { this.cantidad = cantidad;  }
+    public void setCantidadInicial(int cantidadinicial) { this.cantidadinicial = cantidadinicial; }
 
-    public int getIncremento() {  return incremento; }
+    public Date getUltimoDiaIncremento() {  return ultimodiaincremento;  }
 
-    public void setIncremento(int incremento) {  this.incremento = incremento; }
+    public void setUltimoDiaIncremento(Date ultimodiaincremento) {  this.ultimodiaincremento = ultimodiaincremento; }
 
-    public int getDecremento() {  return decremento; }
+    public int getCantidadIncremento() {  return cantidadincremento;  }
 
-    public void setDecremento(int decremento) {  this.decremento = decremento;  }
+    public void setCantidadIncremento(int cantidadincremento) {  this.cantidadincremento = cantidadincremento; }
 
-    public int getCantidadDecremento() {  return cantidaddecremento; }
+    public int getCantidadFinal() {  return cantidadfinal;   }
 
-    public void setCantidadDecremento(int cantidaddecremento) {  this.cantidaddecremento = cantidaddecremento; }
+    public void setCantidadFinal(int cantidadfinal) {  this.cantidadfinal = cantidadfinal;  }
 }
+
+    
+
 
 
 

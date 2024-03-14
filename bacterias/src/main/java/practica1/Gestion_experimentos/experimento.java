@@ -4,7 +4,7 @@ import practica1.Gestion_poblaciones.*;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class experimento {
+public class experimento {   //para asociar atributos de poblacion con exprimetno pongo por ejemplo nombre = nombre.poblacion
 
     private String nombre;
     private Date fechainicio;
