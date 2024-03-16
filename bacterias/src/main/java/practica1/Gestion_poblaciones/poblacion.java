@@ -19,12 +19,11 @@ public class poblacion extends experimento{
 
     public void setNuminicialbacterias(int numinicialbacterias) { this.numinicialbacterias = numinicialbacterias; }
 
-
-    
-}
 @Override
 public String toString() {
     return "Poblacion [nombre=" + getNombre() + ", fechainicio=" + getFechainicio() + ", fechafin=" + getFechafin()
             + ", numinicialbacterias=" + numinicialbacterias + ", temperatura=" + getTemperatura() + ", luz=" + getLuz()
             + ", comida=" + getComida() + "]";
+}
+
 }

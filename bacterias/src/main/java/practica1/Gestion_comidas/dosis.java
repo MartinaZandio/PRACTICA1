@@ -8,11 +8,11 @@ public class dosis {
     private int cantidadfinal;   //cantidad que ha sido repartida al final 
     private Date ultimodiaincremento;  //ultimo dia en el q la dosis de comida aumenta linealmente 
 
-    public dosis(int cantidadinicial, Date ultimodiaincremento, int cantidadmaxincremento, int cantidadfinal) {
+    public dosis(int cantidadinicial, int cantidadmaxincremento, int cantidadfinal, Date ultimodiaincremento) {
         this.cantidadinicial = cantidadinicial;
-        this.ultimodiaincremento = ultimodiaincremento; 
         this.cantidadmaxincremento = cantidadmaxincremento;
         this.cantidadfinal = cantidadfinal;
+        this.ultimodiaincremento = ultimodiaincremento; 
     }
 
     public int getCantidadInicial() {  return cantidadinicial; }
@@ -25,7 +25,7 @@ public class dosis {
 
     public int getCantidadMaxIncremento() {  return cantidadmaxincremento;  }
 
-    public void setCantidadMaxIncremento(int cantidadincremento) {  this.cantidadmaxincremento = cantidadmaxincremento; }
+    public void setCantidadMaxIncremento(int cantidadmaxincremento) {  this.cantidadmaxincremento = cantidadmaxincremento; }
 
     public int getCantidadFinal() {  return cantidadfinal;   }
 

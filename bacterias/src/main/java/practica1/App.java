@@ -1,12 +1,13 @@
 package practica1;
 
 import java.io.IOException;
-import java.util.Scanner;
+
+import practica1.Gestion_laboratorios.laboratorio;
 
 public class App{
-    public static void main(String[] args) {  //esta es la interfaz con el usuario, solo va el swotch, los datos no se piden ni se muestran aqui
+    public static void main(String[] args) throws IOException {  //esta es la interfaz con el usuario, solo va el swotch, los datos no se piden ni se muestran aqui
 
-        int opcionelegida = menu();
+        int opcionelegida = laboratorio.menu();
         switch(opcionelegida){
             case 1: 
                 System.out.println("Opcion 1: Abrir un archivo que contenga un experimento\n");
@@ -39,31 +40,5 @@ public class App{
         
     }
 
-    public static int menu(){
-        int opcion; 
-        try{System.out.println(
-            "1. Abrir un archivo que contenga un experimento\n" + 
-            "2. Crear un nuevo experimento\n" + 
-            "3. Crear una población de bacterias y añadirla al experimento actual\n" + 
-            "4. Visualizar los nombres de todas las poblaciones de bacterias del experimento\n" + 
-            "5. Borrar una población de bacterias del experimento actual\n" + 
-            "6. Ver información detallada de una población de bacterias del experimento actual\n" + 
-            "7. Guardar\n" + 
-            "8. Guardar como");
-
-            System.out.println("Introduzca el número de la acción que desea realizar: ");
-
-            Scanner leer = new Scanner(System.in);
-            opcion=leer.nextInt();
-            return opcion; 
-        }
-        catch (IOException e){
-            throw new RuntimeException();
-        }
-        
-    }    
-    
-
-       
     
 }
