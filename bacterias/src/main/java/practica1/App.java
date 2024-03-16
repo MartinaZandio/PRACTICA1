@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class App{
-    public static void main(String[] args) {
+    public static void main(String[] args) {  //esta es la interfaz con el usuario, solo va el swotch, los datos no se piden ni se muestran aqui
 
         int opcionelegida = menu();
         switch(opcionelegida){
