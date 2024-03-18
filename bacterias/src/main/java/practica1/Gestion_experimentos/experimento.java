@@ -13,7 +13,7 @@ public class experimento {   //clase padre de pobalcion (poblacion hereda atribu
     private double temperatura;
     private luminosidad luz;
     private dosis comida;
-    ArrayList<poblacion> poblacionestotales = new ArrayList<>();
+    public ArrayList<poblacion> poblacionestotales = new ArrayList<>();
 
     public experimento(String nombre, Date fechainicio, Date fechafin, double temperatura, luminosidad luz, dosis comida){
         this.nombre = nombre;
@@ -47,6 +47,14 @@ public class experimento {   //clase padre de pobalcion (poblacion hereda atribu
     public dosis getComida() {  return comida;  }
 
     public void setComida(dosis comida) {  this.comida = comida;  }
+
+    public ArrayList<poblacion> getPoblacionestotales() {
+        return poblacionestotales;
+    }
+
+    public void setPoblacionestotales(ArrayList<poblacion> poblacionestotales) {
+        this.poblacionestotales = poblacionestotales;
+    }
 }
 
     
