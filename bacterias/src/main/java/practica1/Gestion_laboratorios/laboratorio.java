@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import practica1.Gestion_experimentos.experimento;
+
 public class laboratorio { //entrada y salida de datos  
     
     public static int menu() throws IOException{
@@ -29,6 +31,20 @@ public class laboratorio { //entrada y salida de datos
             throw new RuntimeException();
         }
         
-    }    
+    } 
+    
+    public static experimento crearExperimento() throws IOException{
+        experimento nuevoExperimento = new experimento();
+        
+
+
+    }
+
+    public static poblacion crearPoblacion() throws IOException{
+        
+
+
+    }
+        
 
 }
