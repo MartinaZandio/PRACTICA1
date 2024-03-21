@@ -24,6 +24,10 @@ public class experimento {   //clase padre de pobalcion (poblacion hereda atribu
         this.comida = comida; 
     }
 
+    public experimento() {
+        
+    }
+
     public String getNombre() { return nombre;  }
 
     public void setNombre(String nombre) {  this.nombre = nombre;  }
@@ -47,6 +51,19 @@ public class experimento {   //clase padre de pobalcion (poblacion hereda atribu
     public dosis getComida() {  return comida;  }
 
     public void setComida(dosis comida) {  this.comida = comida;  }
+
+    @Override
+public String toString() {
+    return "experimento{" +
+            "nombre='" + nombre + '\'' +
+            ", fechainicio=" + fechainicio +
+            ", fechafin=" + fechafin +
+            ", temperatura=" + temperatura +
+            ", luz=" + luz +
+            ", comida=" + comida +
+            ", poblacionestotales=" + poblacionestotales +
+            '}';
+}
 
     public ArrayList<poblacion> getPoblacionestotales() {
         return poblacionestotales;

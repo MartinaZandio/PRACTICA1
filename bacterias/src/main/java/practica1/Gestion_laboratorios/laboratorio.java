@@ -1,4 +1,5 @@
 package practica1.Gestion_laboratorios;
+import practica1.Gestion_poblaciones.luminosidad;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -8,8 +9,12 @@ import practica1.Gestion_experimentos.experimento;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class laboratorio { //entrada y salida de datos  
+public class laboratorio extends experimento { //entrada y salida de datos  
     
+    public laboratorio() {
+        super();
+    }
+   
     public static int menu() throws IOException{
         int opcion; 
         try{
@@ -49,7 +54,26 @@ public class laboratorio { //entrada y salida de datos
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
             Date fechaInicio = dateFormat.parse(fechaintroducida);
             nuevoExperimento.setFechainicio(fechaInicio);
+            System.out.println("\nIntroduzca la luminosidad del experimento (alta = a, media = m, baja = b): ");
+            int aux = leer.read();
+            if (aux == 'a'){
+                nuevoExperimento.setLuz(luminosidad.alta);
+            }
+            else if (aux == 'm'){
+                nuevoExperimento.setLuz(luminosidad.media);
+            }
+            else if (aux == 'b'){
+                nuevoExperimento.setLuz(luminosidad.baja);
+            }
+            else{
+                System.out.println("Error, introduzca una luminosidad válida");
+            }
+            System.out.println("\nIntroduzca la cantidad de comida inical: ");
+            nuevoExperimento.getComida().setCantidadInicial(Integer.parseInt(leer.readLine()));
+
+            return nuevoExperimento;
             
+    
         } catch (Exception e) {
             // TODO: handle exception
         }

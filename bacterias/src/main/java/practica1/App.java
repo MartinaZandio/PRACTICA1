@@ -3,9 +3,14 @@ package practica1;
 import java.io.IOException;
 
 import practica1.Gestion_laboratorios.laboratorio;
+import practica1.Gestion_experimentos.experimento;
 
 public class App{
-    public static void main(String[] args) throws IOException {  //esta es la interfaz con el usuario, solo va el swotch, los datos no se piden ni se muestran aqui
+
+    private static laboratorio experimentoactual = new experimento(nombre, fechainicio, fechafin, temperatura, luz, comida);
+
+    public static void main(String[] args) throws IOException {//esta es la interfaz con el usuario, solo va el switch, los datos no se piden ni se muestran aqui
+
 
         int opcionelegida = laboratorio.menu();
         switch(opcionelegida){
@@ -14,6 +19,8 @@ public class App{
                 break;
             case 2: 
                 System.out.println("Opcion 2: Crear un nuevo experimento\n");
+                experimentoactual = laboratorio.crearExperimento();
+                System.out.println(experimetnoactual.toString());
                 break;
             case 3: 
                 System.out.println("Opcion 3: Crear una población de bacterias y añadirla al experimento actual\n");
