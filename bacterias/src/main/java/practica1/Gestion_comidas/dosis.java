@@ -15,6 +15,13 @@ public class dosis {
         this.ultimodiaincremento = ultimodiaincremento; 
     }
 
+    public dosis(){
+        this.cantidadinicial = 0;
+        this.cantidadmaxincremento = 0;
+        this.cantidadfinal = 0;
+        this.ultimodiaincremento = new Date();
+    }
+
     public int getCantidadInicial() {  return cantidadinicial; }
 
     public void setCantidadInicial(int cantidadinicial) { this.cantidadinicial = cantidadinicial; }

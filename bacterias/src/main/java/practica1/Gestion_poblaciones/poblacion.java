@@ -14,10 +14,15 @@ public class poblacion extends experimento{
         
     }
 
-
-    public void anadirPoblacion(){
-        poblacionestotales.add();//entre los aprentesis que?????
-        
+    public poblacion(){
+        super();
+        this.numinicialbacterias = 0;
     }
+
+    public int getNumInicialBacterias() {  return numinicialbacterias;  }
+
+    public void setNumInicialBacterias(int numinicialbacterias) {  this.numinicialbacterias = numinicialbacterias;  }
+
+
 
 }

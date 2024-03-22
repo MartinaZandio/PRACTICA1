@@ -25,7 +25,12 @@ public class experimento {   //clase padre de pobalcion (poblacion hereda atribu
     }
 
     public experimento() {
-        
+        this.nombre = "";
+        this.fechainicio = new Date();
+        this.fechafin = new Date(fechainicio.getTime() + 30 * 24 * 60 * 60 * 1000);
+        this.temperatura = 0;
+        this.luz = null;
+        this.comida = null;
     }
 
     public String getNombre() { return nombre;  }
@@ -72,7 +77,34 @@ public String toString() {
     public void setPoblacionestotales(ArrayList<poblacion> poblacionestotales) {
         this.poblacionestotales = poblacionestotales;
     }
+
+    public void anadirPoblacion(poblacion nuevapoblacion){
+        poblacionestotales.add(nuevapoblacion);
+    }
+
+    public void visualizarPoblaciones(){
+        for(int i = 0; i < poblacionestotales.size(); i++){
+            System.out.println(poblacionestotales.get(i).getNombre());
+        }
+    }
+
+    
+    public void eliminarPoblacion(String nombrepoblacionaborrar){
+        poblacionestotales.remove(nombrepoblacionaborrar);
+       
+    }
+    
 }
+
+/*public void eliminarPoblacion(String nombrepoblacionaborrar) {
+    for (Iterator<poblacion> iterator = poblacionestotales.iterator(); iterator.hasNext();) {
+        poblacion poblacionActual = iterator.next();
+        if (poblacionActual.getNombre().equals(nombrepoblacionaborrar)) {
+            iterator.remove();
+            break;
+        }
+    }
+}*/
 
     
 

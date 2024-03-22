@@ -1,5 +1,7 @@
 package practica1.Gestion_laboratorios;
 import practica1.Gestion_poblaciones.luminosidad;
+import practica1.Gestion_comidas.dosis;
+import practica1.Gestion_poblaciones.poblacion;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -13,6 +15,11 @@ public class laboratorio extends experimento { //entrada y salida de datos
     
     public laboratorio() {
         super();
+    }
+
+    @Override
+    public String toString() {
+        return "Laboratorio: " + super.toString();
     }
    
     public static int menu() throws IOException{
@@ -55,7 +62,7 @@ public class laboratorio extends experimento { //entrada y salida de datos
             Date fechaInicio = dateFormat.parse(fechaintroducida);
             nuevoExperimento.setFechainicio(fechaInicio);
             System.out.println("\nIntroduzca la luminosidad del experimento (alta = a, media = m, baja = b): ");
-            int aux = leer.read();
+            char aux = leer.readLine().charAt(0);
             if (aux == 'a'){
                 nuevoExperimento.setLuz(luminosidad.alta);
             }
@@ -76,17 +83,64 @@ public class laboratorio extends experimento { //entrada y salida de datos
     
         } catch (Exception e) {
             // TODO: handle exception
+            return null;
         }
-        
+    }
 
+    public static dosis crearDosis() throws IOException{
+        dosis nuevaDosis = new dosis();
 
+        try {
+            BufferedReader leer = new BufferedReader(new InputStreamReader(System.in));
+            System.out.println("\nIntroduzca la cantidad inicial de comida: ");
+            nuevaDosis.setCantidadInicial(Integer.parseInt(leer.readLine()));
+            System.out.println("\nIntroduzca la cantidad máxima de comida: ");
+            nuevaDosis.setCantidadMaxIncremento(Integer.parseInt(leer.readLine()));
+            System.out.println("\nIntroduzca la cantidad final de comida: ");
+            nuevaDosis.setCantidadFinal(Integer.parseInt(leer.readLine()));
+            System.out.println("\nIntroduzca el último día en el que la dosis de comida aumenta linealmente (formato dd/MM/yyyy): ");
+            String fechaintroducida = leer.readLine();
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            Date fechaIncremento = dateFormat.parse(fechaintroducida);
+            nuevaDosis.setUltimoDiaIncremento(fechaIncremento);
+
+            return nuevaDosis;
+            
+    
+        } catch (Exception e) {
+
+            return null;}
     }
 
     public static poblacion crearPoblacion() throws IOException{
-        
+        poblacion nuevaPoblacion = new poblacion();
 
+        try {
+            BufferedReader leer = new BufferedReader(new InputStreamReader(System.in));
+            System.out.println("\nIntroduzca el nombre de la población: ");
+            nuevaPoblacion.setNombre(leer.readLine());
+            System.out.println("\nIntroduzca el numero de bacterias que forman la poblacion:");
+            nuevaPoblacion.setNumInicialBacterias(Integer.parseInt(leer.readLine()));
 
+            return nuevaPoblacion;
+            
+    
+        } catch (Exception e) {
+
+            return null;}
     }
-        
 
+    public static String accederAPoblacion() throws IOException{
+        String nombrePoblacion;
+        try {
+            BufferedReader leer = new BufferedReader(new InputStreamReader(System.in));
+            System.out.println("\nIntroduzca el nombre de la población que desea eliminar o visualizar, dependiendo de la opción seleccionada anteriormente: ");
+            nombrePoblacion = leer.readLine();
+            return nombrePoblacion;
+            
+    
+        } catch (Exception e) {
+
+            return null;}
+    }
 }
