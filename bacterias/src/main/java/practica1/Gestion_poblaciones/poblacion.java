@@ -23,6 +23,13 @@ public class poblacion extends experimento{
 
     public void setNumInicialBacterias(int numinicialbacterias) {  this.numinicialbacterias = numinicialbacterias;  }
 
-    
+    @Override
+    public String toString() {
+        return "\nPOBLACION DE BACTERIAS" +
+                "\nNombre de la población: " + getNombre() +
+                "\nNúmero inicial de bacterias: " + numinicialbacterias +
+                "\nDatos del experimento: " + super.toString() + "\n";
+                
+    }
 
 }

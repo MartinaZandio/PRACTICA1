@@ -48,6 +48,7 @@ public class App implements Serializable{
                 System.out.println("Opcion 6: Ver información detallada de una población de bacterias del experimento actual\n");
                 String nombrepoblacioninfo = laboratorio.accederAPoblacion();
                 experimentoactual.infoDetallada(nombrepoblacioninfo);
+                experimentoactual.toString();
                 break;
             case 7: 
                 System.out.println("Opcion 7: Guardar\n");
