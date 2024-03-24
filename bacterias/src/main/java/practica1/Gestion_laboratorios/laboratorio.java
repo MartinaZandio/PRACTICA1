@@ -6,10 +6,14 @@ import practica1.Gestion_poblaciones.poblacion;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.ObjectOutputStream;
 
 import practica1.Gestion_experimentos.experimento;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
 
 public class laboratorio extends experimento { //entrada y salida de datos  
     
@@ -75,14 +79,14 @@ public class laboratorio extends experimento { //entrada y salida de datos
             else{
                 System.out.println("Error, introduzca una luminosidad válida");
             }
-            System.out.println("\nIntroduzca la cantidad de comida inical: ");
-            nuevoExperimento.getComida().setCantidadInicial(Integer.parseInt(leer.readLine()));
 
+            dosis dosis = crearDosis();
+            nuevoExperimento.añadirDosis(dosis);
+           
             return nuevoExperimento;
             
     
         } catch (Exception e) {
-            // TODO: handle exception
             return null;
         }
     }
@@ -142,5 +146,51 @@ public class laboratorio extends experimento { //entrada y salida de datos
         } catch (Exception e) {
 
             return null;}
+    }
+
+    public static experimento abrirArchivo(){
+        try {
+            File miExperimento = new File("experimento.txt");
+            if(miExperimento.createNewFile()){
+                System.out.println("Archivo nuevo creado: " + miExperimento.getName());
+            }else{
+                System.out.println("Ese archivo ya existe");
+            }
+        } catch (Exception e) {
+            System.out.println("Ha ocurrido un error");
+            e.printStackTrace();
+        }
+
+        return null;
+        
+    }
+
+    /*public static void guardarEnArchivo(experimento experimentoactual){
+        try {
+            FileWriter archivoguardado = new FileWriter("experimento.txt");
+            archivoguardado.write("EXPERIMENTO GUARDADO");
+            archivoguardado.close();
+      
+        } catch (Exception e) {
+            System.out.println("Ha ocurrido un error");
+            e.printStackTrace();
+        }
+    }   */
+
+    public static void guardar (experimento experimentoactual){
+        try {
+            File archivo = new File ("experimento.txt");
+            FileOutputStream fos = new FileOutputStream(archivo);
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(experimentoactual);
+        } catch (Exception e) {
+            System.out.println("Ha ocurrido un error");
+            e.printStackTrace();
+        }
+    }
+
+    public static void guardarComo(experimento experimentoactual){
+
+
     }
 }

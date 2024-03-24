@@ -37,6 +37,16 @@ public class dosis {
     public int getCantidadFinal() {  return cantidadfinal;   }
 
     public void setCantidadFinal(int cantidadfinal) {  this.cantidadfinal = cantidadfinal;  }
+
+    @Override
+    public String toString() {
+        return "dosis{" +
+                "cantidadinicial=" + cantidadinicial +
+                ", cantidadmaxincremento=" + cantidadmaxincremento +
+                ", cantidadfinal=" + cantidadfinal +
+                ", ultimodiaincremento=" + ultimodiaincremento +
+                '}';
+    }
 }
 
     

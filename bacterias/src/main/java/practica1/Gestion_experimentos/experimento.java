@@ -70,6 +70,10 @@ public String toString() {
             '}';
 }
 
+    public void añadirDosis(dosis nuevadosis){
+        this.comida = nuevadosis;
+    }
+
     public ArrayList<poblacion> getPoblacionestotales() {
         return poblacionestotales;
     }
@@ -90,21 +94,30 @@ public String toString() {
 
     
     public void eliminarPoblacion(String nombrepoblacionaborrar){
-        poblacionestotales.remove(nombrepoblacionaborrar);
+        poblacion poblacionaeliminar = null; 
+        for (poblacion poblacion : poblacionestotales){
+            if (poblacion.getNombre().equals(nombrepoblacionaborrar)){
+                poblacionaeliminar = poblacion; 
+                break;
+            }
+        }
+        if (poblacionaeliminar != null){
+            poblacionestotales.remove(poblacionaeliminar);
+        }
        
+    }
+
+    public void infoDetallada(String nombrepoblacioninfo){
+        for (poblacion poblacion : poblacionestotales){
+            if (poblacion.getNombre().equals(nombrepoblacioninfo)){
+                System.out.println(poblacion.toString());
+            }
+        }
     }
     
 }
 
-/*public void eliminarPoblacion(String nombrepoblacionaborrar) {
-    for (Iterator<poblacion> iterator = poblacionestotales.iterator(); iterator.hasNext();) {
-        poblacion poblacionActual = iterator.next();
-        if (poblacionActual.getNombre().equals(nombrepoblacionaborrar)) {
-            iterator.remove();
-            break;
-        }
-    }
-}*/
+
 
     
 

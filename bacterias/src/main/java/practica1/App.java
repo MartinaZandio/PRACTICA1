@@ -15,16 +15,18 @@ public class App{
 
     public static void main(String[] args) throws IOException {//esta es la interfaz con el usuario, solo va el switch, los datos no se piden ni se muestran aqui
 
-
-        int opcionelegida = laboratorio.menu();
+        int opcionelegida;
+        do{
+        opcionelegida = laboratorio.menu();
         switch(opcionelegida){
             case 1: 
                 System.out.println("Opcion 1: Abrir un archivo que contenga un experimento\n");
+                experimentoactual = laboratorio.abrirArchivo();
                 break;
             case 2: 
                 System.out.println("Opcion 2: Crear un nuevo experimento\n");
                 experimentoactual = laboratorio.crearExperimento();
-                nuevadosis = laboratorio.crearDosis();
+                System.out.println("Experimento creado: " +experimentoactual.toString());
                 break;
             case 3: 
                 System.out.println("Opcion 3: Crear una población de bacterias y añadirla al experimento actual\n");
@@ -42,19 +44,23 @@ public class App{
                 break;
             case 6: 
                 System.out.println("Opcion 6: Ver información detallada de una población de bacterias del experimento actual\n");
+                String nombrepoblacioninfo = laboratorio.accederAPoblacion();
+                experimentoactual.infoDetallada(nombrepoblacioninfo);
                 break;
             case 7: 
                 System.out.println("Opcion 7: Guardar\n");
+                laboratorio.guardar(experimentoactual);
                 break;
             case 8: 
                 System.out.println("Opcion 8: Guardar como\n");
+                laboratorio.guardarComo(experimentoactual);
                 break;
             default: 
                 System.out.println("Opcion no valida");
                 break;
         }
         
-    }
+    }while(opcionelegida != 0);
 
-    
+    }
 }
