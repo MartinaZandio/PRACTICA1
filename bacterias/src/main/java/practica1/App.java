@@ -5,14 +5,13 @@ import java.io.IOException;
 import practica1.Gestion_laboratorios.laboratorio;
 import practica1.Gestion_experimentos.experimento;
 import practica1.Gestion_poblaciones.poblacion;
-import practica1.Gestion_comidas.dosis;
+
 
 public class App{
 
     private static experimento experimentoactual = new experimento();
     private static poblacion nuevapoblacion = new poblacion();
-    private static dosis nuevadosis = new dosis();
-
+    
     public static void main(String[] args) throws IOException {//esta es la interfaz con el usuario, solo va el switch, los datos no se piden ni se muestran aqui
 
         int opcionelegida;
@@ -21,7 +20,8 @@ public class App{
         switch(opcionelegida){
             case 1: 
                 System.out.println("Opcion 1: Abrir un archivo que contenga un experimento\n");
-                experimentoactual = laboratorio.abrirArchivo();
+                String archivoaabrir = laboratorio.PedirNombreArchivo();
+                experimentoactual = experimento.abrirArchivo(archivoaabrir);
                 break;
             case 2: 
                 System.out.println("Opcion 2: Crear un nuevo experimento\n");
@@ -49,11 +49,12 @@ public class App{
                 break;
             case 7: 
                 System.out.println("Opcion 7: Guardar\n");
-                laboratorio.guardar(experimentoactual);
+                experimento.guardar(experimentoactual);
                 break;
             case 8: 
                 System.out.println("Opcion 8: Guardar como\n");
-                laboratorio.guardarComo(experimentoactual);
+                String nombrearchivo = laboratorio.PedirNombreArchivo();
+                experimento.guardarComo(experimentoactual, nombrearchivo);
                 break;
             default: 
                 System.out.println("Opcion no valida");
