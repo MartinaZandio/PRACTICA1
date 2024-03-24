@@ -23,6 +23,6 @@ public class poblacion extends experimento{
 
     public void setNumInicialBacterias(int numinicialbacterias) {  this.numinicialbacterias = numinicialbacterias;  }
 
-
+    
 
 }

@@ -1,13 +1,15 @@
 package practica1;
 
 import java.io.IOException;
+import java.io.Serializable;
+
 
 import practica1.Gestion_laboratorios.laboratorio;
 import practica1.Gestion_experimentos.experimento;
 import practica1.Gestion_poblaciones.poblacion;
 
 
-public class App{
+public class App implements Serializable{
 
     private static experimento experimentoactual = new experimento();
     private static poblacion nuevapoblacion = new poblacion();

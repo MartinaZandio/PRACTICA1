@@ -12,8 +12,9 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Date;
+import java.io.Serializable; 
 
-public class experimento {   //clase padre de pobalcion (poblacion hereda atributos de esta clase para que esten relacionadas)
+public class experimento implements Serializable{   //clase padre de pobalcion (poblacion hereda atributos de esta clase para que esten relacionadas)
 
     private String nombre;
     private Date fechainicio;
@@ -67,15 +68,14 @@ public class experimento {   //clase padre de pobalcion (poblacion hereda atribu
 
     @Override
 public String toString() {
-    return "experimento{" +
-            "nombre='" + nombre + '\'' +
-            ", fechainicio=" + fechainicio +
-            ", fechafin=" + fechafin +
-            ", temperatura=" + temperatura +
-            ", luz=" + luz +
-            ", comida=" + comida +
-            ", poblacionestotales=" + poblacionestotales +
-            '}';
+    return "Experimento:" +
+            "\n El nombre del experimento es: " + nombre +
+            "\n El experimento comienza el dia: " + fechainicio +
+            "\n El experimento finaliza el dia: " + fechafin + "(30 días después de la fecha de inicio)" +
+            "\n La temperatura a la que se realiza el experimento es de " + temperatura + "grados celsius" +
+            "\n El experimento se realiza con una luminosidad " + luz +
+            "\n La dosis de comida para este experimento es: " + comida + "\n" 
+            ;
 }
 
     public void añadirDosis(dosis nuevadosis){

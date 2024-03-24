@@ -40,12 +40,11 @@ public class dosis {
 
     @Override
     public String toString() {
-        return "dosis{" +
-                "cantidadinicial=" + cantidadinicial +
-                ", cantidadmaxincremento=" + cantidadmaxincremento +
-                ", cantidadfinal=" + cantidadfinal +
-                ", ultimodiaincremento=" + ultimodiaincremento +
-                '}';
+        return "\nDOSIS DE COMIDA" +
+                "\nLa cantidad inicial de comida es: " + cantidadinicial +
+                "\nEl ultimo dia en el que la dosis crece linealmente, la dosis es de: " + cantidadmaxincremento +
+                "\nLa cantidad final de comida es: " + cantidadfinal +
+                "\nEl ultimo dia en el que la dosis crece linealmente es: " + ultimodiaincremento + "\n";
     }
 }
 
