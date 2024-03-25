@@ -1,7 +1,9 @@
 package practica1.Gestion_comidas;
+import java.io.Serializable;
 import java.util.Date;
+import java.io.Serializable;
 
-public class dosis {
+public class dosis implements Serializable{
     
     private int cantidadinicial; //cantidad del primer dia 
     private int cantidadmaxincremento;  //cantidad de comida en el ultimo dia de incremento de dosis 
