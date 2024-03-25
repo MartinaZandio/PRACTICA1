@@ -6,17 +6,12 @@ import practica1.Gestion_poblaciones.poblacion;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+
 
 import practica1.Gestion_experimentos.experimento;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
+
 
 public class laboratorio extends experimento { //entrada y salida de datos  
     
@@ -101,15 +96,12 @@ public class laboratorio extends experimento { //entrada y salida de datos
             BufferedReader leer = new BufferedReader(new InputStreamReader(System.in));
             System.out.println("\nIntroduzca la cantidad inicial de comida: ");
             nuevaDosis.setCantidadInicial(Integer.parseInt(leer.readLine()));
-            System.out.println("\nIntroduzca la cantidad máxima de comida: ");
+            System.out.println("\nIntroduzca la cantidad máxima de comida (siendo el máximo posible 300): ");
             nuevaDosis.setCantidadMaxIncremento(Integer.parseInt(leer.readLine()));
             System.out.println("\nIntroduzca la cantidad final de comida: ");
             nuevaDosis.setCantidadFinal(Integer.parseInt(leer.readLine()));
-            System.out.println("\nIntroduzca el último día en el que la dosis de comida aumenta linealmente (formato dd/MM/yyyy): ");
-            String fechaintroducida = leer.readLine();
-            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-            Date fechaIncremento = dateFormat.parse(fechaintroducida);
-            nuevaDosis.setUltimoDiaIncremento(fechaIncremento);
+            System.out.println("\n¿Después de cuantos días la dosis de comida deja de incrementar linealmente?: ");
+            nuevaDosis.setUltimoDiaIncremento(Integer.parseInt(leer.readLine()));
 
             return nuevaDosis;
             

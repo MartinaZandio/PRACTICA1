@@ -39,8 +39,7 @@ public class poblacion extends experimento implements Serializable{
     public String toString() {
         return "\nPOBLACION DE BACTERIAS" +
                 "\nNombre de la población: " + nombrepoblacion +
-                "\nNúmero inicial de bacterias: " + numinicialbacterias +
-                "\nDatos del experimento: " + (experimento != null ? experimento.toString() : "No hay datos del experimento")+ "\n";
+                "\nNúmero inicial de bacterias: " + numinicialbacterias ;
                 
     }
 

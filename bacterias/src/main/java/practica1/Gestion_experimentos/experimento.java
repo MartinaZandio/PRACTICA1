@@ -1,6 +1,7 @@
 package practica1.Gestion_experimentos;
 
 import practica1.Gestion_comidas.dosis;
+//import practica1.Gestion_comidas.reparticion_comida;
 import practica1.Gestion_poblaciones.*;
 
 import java.io.File;
@@ -119,6 +120,9 @@ public String toString() {
         for (poblacion poblacion : poblacionestotales){
             if (poblacion.getNombre().equals(nombrepoblacioninfo)){
                 System.out.println(poblacion.toString());
+                System.out.println("Datos del experimento: " + this.toString());
+               // reparticion_comida.reparticion(cantidadinicial, cantidadmaxincremento, cantidadfinal, ultimodiaincremento);
+               // System.out.println("Datos de la dosis de comida: " + );
             }
         }
     }
