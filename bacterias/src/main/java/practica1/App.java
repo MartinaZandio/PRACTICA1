@@ -51,14 +51,7 @@ public class App implements Serializable{
                 System.out.println("Opción 6: Ver información detallada de una población de bacterias del experimento actual\n");
                 String nombrepoblacioninfo = laboratorio.accederAPoblacion();
                 experimentoactual.infoDetallada(nombrepoblacioninfo);
-
                 dosis.reparticion(experimentoactual.getComida().getCantidadInicial(), experimentoactual.getComida().getCantidadMaxIncremento(), experimentoactual.getComida().getCantidadFinal(), experimentoactual.getComida().getUltimoDiaIncremento());
-                
-                //dosis.reparticion(nuevapoblacion.getComida().getCantidadInicial(), nuevapoblacion.getComida().getCantidadMaxIncremento(), nuevapoblacion.getComida().getCantidadFinal(), nuevapoblacion.getComida().getUltimoDiaIncremento());
-                
-                //dosis.reparticion(opcionelegida, opcionelegida, opcionelegida, opcionelegida);
-                //System.out.println("Datos de la dosis de comida: " + nuevapoblacion.getComida().toString());
-
                 break;
             case 7: 
                 System.out.println("Opción 7: Guardar\n");
