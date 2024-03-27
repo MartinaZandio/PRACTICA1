@@ -1,7 +1,6 @@
 package practica1.Gestion_experimentos;
 
 import practica1.Gestion_comidas.dosis;
-//import practica1.Gestion_comidas.reparticion_comida;
 import practica1.Gestion_poblaciones.*;
 
 import java.io.File;
@@ -13,9 +12,23 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Date;
-import java.io.Serializable; 
+import java.io.Serializable;
 
-public class experimento implements Serializable{   //clase padre de pobalcion (poblacion hereda atributos de esta clase para que esten relacionadas)
+/**
+ * Clase experimento
+ *
+ * Esta clase contiene los atributos y métodos necesarios para gestionar los experimentos que se realizan en el laboratorio.
+ *
+ * @author Martina Zandio Lizarraga
+ * @version 1.0
+ * @since 1.0
+ * @see Serializable
+ * @see java.io.Serializable
+ * @see java.io
+ * @see java.io.IOException
+ */
+
+public class experimento implements Serializable{   //clase padre de poblacion (poblacion hereda atributos de esta clase para que esten relacionadas)
 
     private String nombre;
     private Date fechainicio;
@@ -24,6 +37,19 @@ public class experimento implements Serializable{   //clase padre de pobalcion (
     private luminosidad luz;
     private dosis comida;
     public ArrayList<poblacion> poblacionestotales = new ArrayList<>();
+
+    /**
+     * Constructor de la clase experimento
+     *
+     * Este constructor se encarga de crear un nuevo experimento con los datos que se le pasan como parámetros.
+     *
+     * @param nombre Nombre del experimento
+     * @param fechainicio Fecha de inicio del experimento
+     * @param fechafin Fecha de fin del experimento
+     * @param temperatura Temperatura a la que se realiza el experimento
+     * @param luz Luminosidad a la que se realiza el experimento
+     * @param comida Dosis de comida que se le da a las bacterias en el experimento
+     */
 
     public experimento(String nombre, Date fechainicio, Date fechafin, double temperatura, luminosidad luz, dosis comida){
         this.nombre = nombre;
@@ -67,6 +93,14 @@ public class experimento implements Serializable{   //clase padre de pobalcion (
 
     public void setComida(dosis comida) {  this.comida = comida;  }
 
+
+    /**
+     * Método toString
+     *
+     * Este método se encarga de devolver una cadena de texto con los datos del experimento.
+     *
+     * @return String Cadena de texto con los datos del experimento
+     */
     @Override
 public String toString() {
     return "Experimento:" +
@@ -79,10 +113,16 @@ public String toString() {
             ;
 }
 
+    /**
+     * Método añadirDosis
+     *
+     * Este método se encarga de añadir una nueva dosis de comida al experimento.
+     *
+     * @param nuevadosis Nueva dosis de comida, de tipo dosis, a añadir al experimento actual
+     */
     public void añadirDosis(dosis nuevadosis){
         this.comida = nuevadosis;
     }
-
     public ArrayList<poblacion> getPoblacionestotales() {
         return poblacionestotales;
     }
@@ -90,18 +130,34 @@ public String toString() {
     public void setPoblacionestotales(ArrayList<poblacion> poblacionestotales) {
         this.poblacionestotales = poblacionestotales;
     }
-
+    /**
+     * Método añadirPoblacion
+     *
+     * Este método se encarga de añadir una nueva población de bacterias al arrayList de poblaciones que forman un experimento.
+     *
+     * @param nuevapoblacion Nueva población de bacterias, de tipo poblacion, a añadir al experimento actual
+     */
     public void anadirPoblacion(poblacion nuevapoblacion){
         poblacionestotales.add(nuevapoblacion);
     }
-
+    /**
+     * Método visualizarPoblaciones
+     *
+     * Este método se encarga de mostrar por pantalla los nombres de todas las poblaciones de bacterias que forman un experimento.
+     */
     public void visualizarPoblaciones(){
         for(int i = 0; i < poblacionestotales.size(); i++){
             System.out.println(poblacionestotales.get(i).getNombre());
         }
     }
 
-    
+    /**
+     * Método eliminarPoblacion
+     *
+     * Este método se encarga de eliminar una población de bacterias del arrayList de poblaciones que forman un experimento.
+     *
+     * @param nombrepoblacionaborrar Nombre de la población de bacterias, pedido al usuario, a eliminar del experimento actual
+     */
     public void eliminarPoblacion(String nombrepoblacionaborrar){
         poblacion poblacionaeliminar = null; 
         for (poblacion poblacion : poblacionestotales){
@@ -116,17 +172,30 @@ public String toString() {
        
     }
 
+    /**
+     * Método infoDetallada
+     *
+     * Este método se encarga de mostrar por pantalla la información detallada de una población de bacterias del experimento actual, incluyendo los detalles del experimento y la dosis de comida de cada día.
+     *
+     * @param nombrepoblacioninfo Nombre de la población de bacterias, pedido al usuario, de la que se quiere mostrar la información detallada
+     */
     public void infoDetallada(String nombrepoblacioninfo){
         for (poblacion poblacion : poblacionestotales){
             if (poblacion.getNombre().equals(nombrepoblacioninfo)){
                 System.out.println(poblacion.toString());
                 System.out.println("Datos del experimento: " + this.toString());
-               // reparticion_comida.reparticion(cantidadinicial, cantidadmaxincremento, cantidadfinal, ultimodiaincremento);
-               // System.out.println("Datos de la dosis de comida: " + );
             }
         }
     }
-
+    /**
+     * Método abrirArchivo
+     *
+     * Este método se encarga de abrir un archivo que contiene un experimento guardado previamente.
+     *
+     * @param archivoaabrir Nombre del archivo, pedido al usuario, que contiene el experimento a abrir
+     * @return experimento Experimento que se ha cargado desde el archivo
+     * @throws IOException Excepción que se lanza si ocurre un error al abrir el archivo
+     */
     public static experimento abrirArchivo(String archivoaabrir) throws IOException{
         experimento exp = null; 
         try {
@@ -149,32 +218,14 @@ public String toString() {
          return exp;
     }
 
-    /* try {
-        File miExperimento = new File("experimento.txt");
-        if(miExperimento.createNewFile()){
-            System.out.println("Archivo nuevo creado: " + miExperimento.getName());
-        }else{
-            System.out.println("Ese archivo ya existe");
-        }
-    } catch (Exception e) {
-        System.out.println("Ha ocurrido un error");
-        e.printStackTrace();
-    }
-
-    return null;  */
-
-    /*public static void guardarEnArchivo(experimento experimentoactual){
-        try {
-            FileWriter archivoguardado = new FileWriter("experimento.txt");
-            archivoguardado.write("EXPERIMENTO GUARDADO");
-            archivoguardado.close();
-      
-        } catch (Exception e) {
-            System.out.println("Ha ocurrido un error");
-            e.printStackTrace();
-        }
-    }   */
-
+    /**
+     * Método guardar
+     *
+     * Este método se encarga de guardar un experimento en un archivo.
+     *
+     * @param experimentoactual Experimento que se quiere guardar en el archivo
+     * @throws IOException Excepción que se lanza si ocurre un error al guardar el experimento en el archivo
+     */
     public static void guardar (experimento experimentoactual) throws IOException{
         try {
             File archivo = new File ("experimento.txt");
@@ -189,6 +240,15 @@ public String toString() {
         }
     }
 
+    /**
+     * Método guardarComo
+     *
+     * Este método se encarga de guardar un experimento en un archivo con un nombre determinado por el usuario.
+     *
+     * @param experimentoactual Experimento que se quiere guardar en el archivo
+     * @param nombrearchivo Nombre del archivo en el que se quiere guardar el experimento
+     * @throws IOException Excepción que se lanza si ocurre un error al guardar el experimento en el archivo
+     */
     public static void guardarComo(experimento experimentoactual, String nombrearchivo) throws IOException{
         try {
             File archivo = new File(nombrearchivo);

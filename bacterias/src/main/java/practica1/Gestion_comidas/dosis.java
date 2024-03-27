@@ -1,6 +1,20 @@
 package practica1.Gestion_comidas;
 import java.io.Serializable;
 
+/**
+ * Clase dosis
+ *
+ * Esta clase contiene los atributos y métodos necesarios para gestionar la dosis de comida que se le da a las bacterias en cada experimento.
+ *
+ * @author Martina Zandio Lizarraga
+ * @version 1.0
+ * @since 1.0
+ * @see Serializable
+ * @see java.io.Serializable
+ * @see java.io
+ * @see java.io.IOException
+ */
+
 public class dosis implements Serializable{
     
     private int cantidadinicial; //cantidad del primer dia 
@@ -8,6 +22,16 @@ public class dosis implements Serializable{
     private int cantidadfinal;   //cantidad que ha sido repartida al final 
     private int ultimodiaincremento;  //ultimo dia en el q la dosis de comida aumenta linealmente 
 
+    /**
+     * Constructor de la clase dosis
+     *
+     * Este constructor se encarga de crear una nueva dosis de comida con los datos que se le pasan como parámetros.
+     *
+     * @param cantidadinicial Cantidad de comida del primer día
+     * @param cantidadmaxincremento Cantidad de comida en el último día de incremento de dosis, máxima cantidad de comida que se les da a las bacterias.
+     * @param cantidadfinal Cantidad que se les da a las bacterias el último dia del experimento (día 30)
+     * @param ultimodiaincremento Último día en el que la dosis de comida aumenta linealmente, este día es determinado por el usuario.
+     */
     public dosis(int cantidadinicial, int cantidadmaxincremento, int cantidadfinal, int ultimodiaincremento) {
         this.cantidadinicial = cantidadinicial;
         this.cantidadmaxincremento = cantidadmaxincremento;
@@ -38,6 +62,13 @@ public class dosis implements Serializable{
 
     public void setCantidadFinal(int cantidadfinal) {  this.cantidadfinal = cantidadfinal;  }
 
+    /**
+     * Método toString
+     *
+     * Este método se encarga de devolver una cadena de texto con los datos de la dosis de comida.
+     *
+     * @return String Cadena de texto con los datos de la dosis de comida
+     */
     @Override
     public String toString() {
         return "\nDOSIS DE COMIDA" +
@@ -47,6 +78,17 @@ public class dosis implements Serializable{
                 "\nEl ultimo dia en el que la dosis crece linealmente es: " + ultimodiaincremento + "\n";
     }
 
+    /**
+     * Método reparticion
+     *
+     * Este método se encarga de calcular la cantidad de comida que se le da a las bacterias en cada día del experimento, teniendo en cuenta que tiene que ser una función de aumento lineal hasta el día en el que el usuario dice que el incremento debe parar.
+     *
+     * @param cantidadinicial Cantidad de comida del primer día
+     * @param cantidadmaxincremento Cantidad de comida en el último día de incremento de dosis, máxima cantidad de comida que se les da a las bacterias.
+     * @param cantidadfinal Cantidad que se les da a las bacterias el último dia del experimento (día 30)
+     * @param ultimodiaincremento Último día en el que la dosis de comida aumenta linealmente, este día es determinado por el usuario.
+     * @return cantidad Cantidad de comida que se le da a las bacterias en cada día
+     */
     public static int reparticion(int cantidadinicial, int cantidadmaxincremento, int cantidadfinal, int ultimodiaincremento){
         int cantidad = 0; 
             for (int i=0; i<=30; i++){

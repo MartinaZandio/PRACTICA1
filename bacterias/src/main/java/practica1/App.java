@@ -6,9 +6,19 @@ import java.io.Serializable;
 
 import practica1.Gestion_laboratorios.laboratorio;
 import practica1.Gestion_comidas.dosis;
-//import practica1.Gestion_comidas.reparticion_comida;
 import practica1.Gestion_experimentos.experimento;
 import practica1.Gestion_poblaciones.poblacion;
+
+/**
+ * Clase principal de la aplicación
+ *
+ * Esta clase contiene el método main de la aplicación, que se encarga de gestionar la interacción con el usuario
+ * y de llamar a los métodos necesarios para realizar las operaciones solicitadas mediante un switch.
+ *
+ * @version 1.0
+ * @since 1.0
+ * @author Martina Zandio Lizarraga
+ */
 
 
 public class App implements Serializable{
